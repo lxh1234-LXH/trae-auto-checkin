@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "lock_guard": true,
+  "schedule": {
+    "time": "08:00",
+    "retry_interval_min": 30,
+    "retry_duration_hours": 16,
+    "on_logon": true
+  },
+  "apps": {
+    "TRAEWork": {
+      "enabled": true,
+      "exe": ""
+    },
+    "WorkBuddy": {
+      "enabled": true,
+      "exe": ""
+    }
+  }
+}

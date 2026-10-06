@@ -1,0 +1,5 @@
+opencv-python>=4.5
+numpy
+psutil
+Pillow
+pyinstaller>=6.0

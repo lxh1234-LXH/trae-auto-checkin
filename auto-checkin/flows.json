@@ -1,0 +1,68 @@
+{
+  "version": 2,
+  "apps": [
+    {
+      "name": "TRAEWork",
+      "proc": "TRAE SOLO CN.exe",
+      "title_re": "TraeWork",
+      "exe_hint": ["TRAE SOLO CN", "TraeWork"],
+      "launch_wait": 30,
+      "steps": [
+        { "action": "activate" },
+        { "action": "wait", "seconds": 1.0 },
+        {
+          "action": "open_menu",
+          "click": { "x": 160, "y": -40 },
+          "markers": ["trae_label.png", "trae_signed.png"],
+          "threshold": 0.75,
+          "tries": 3,
+          "wait": 1.8
+        },
+        {
+          "action": "skip_if_image",
+          "template": "trae_signed.png",
+          "threshold": 0.75,
+          "reason": "今日已签到"
+        },
+        {
+          "action": "click_image",
+          "template": "trae_label.png",
+          "threshold": 0.75,
+          "dx": 265,
+          "dy": 15,
+          "on_missing": "fail"
+        },
+        { "action": "wait", "seconds": 1.5 },
+        { "action": "key", "key": "esc" },
+        { "action": "shot" }
+      ]
+    },
+    {
+      "name": "WorkBuddy",
+      "proc": "WorkBuddy.exe",
+      "title_re": "WorkBuddy",
+      "exe_hint": ["WorkBuddy"],
+      "launch_wait": 30,
+      "steps": [
+        { "action": "activate" },
+        { "action": "wait", "seconds": 1.5 },
+        {
+          "action": "skip_if_image",
+          "template": "wb_claimed.png",
+          "threshold": 0.80,
+          "reason": "今日已领取"
+        },
+        {
+          "action": "click_image",
+          "template": "wb_claim.png",
+          "threshold": 0.80,
+          "dx": 0,
+          "dy": 0,
+          "on_missing": "fail"
+        },
+        { "action": "wait", "seconds": 2.5 },
+        { "action": "shot" }
+      ]
+    }
+  ]
+}
